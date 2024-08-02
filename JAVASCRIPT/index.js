@@ -4,6 +4,7 @@ import { state } from "./state.js";
 import { changeLanguage } from "./language.js";
 import { changeCategory } from "./category.js";
 import { searchMovie } from "./search.js";
+import { slideMovies } from "./slide.js";
 export const homeWrapper = document.querySelector(".home-wrapper");
 export let inputValue = document.getElementById("title-input");
 export const categorySpan = document.getElementById("category-span");
@@ -12,6 +13,9 @@ export const categoryList = document.getElementById("category-list");
 export const modal = document.querySelector("dialog");
 export const footerSpan = document.querySelector("footer span");
 export const logo = document.querySelector("header .logo");
+export const slideWrapper = document.querySelector(".slide-wrapper ul");
+export const slidePrevBtn = document.querySelector(".slide-prev-btn");
+export const slideNextBtn = document.querySelector(".slide-next-btn");
 
 export const incrementScrollPage = () => {
   state.scrollPage++;
@@ -72,6 +76,8 @@ window.addEventListener("DOMContentLoaded", () => {
     `https://api.themoviedb.org/3/movie/popular?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}&page=1`
   );
 });
+
+window.addEventListener("DOMContentLoaded", slideMovies());
 
 // 모달창 바깥쪽 클릭하면 모달창 닫기
 modal.addEventListener("click", (e) => {
