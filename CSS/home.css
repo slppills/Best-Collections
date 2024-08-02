@@ -40,6 +40,7 @@ header {
   justify-content: space-between;
   position: fixed;
   background-color: var(--background-color);
+  z-index: 9;
 }
 
 .header-container {
@@ -201,6 +202,53 @@ section {
   padding: 250px 0 0 0;
 }
 
+.slide-wrapper {
+  display: flex;
+  width: 100%;
+  height: 700px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 30px;
+}
+
+.slide-wrapper img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slide-wrapper ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition-duration: 0.4s;
+  transform: translateX(-100%);
+}
+
+.slide-wrapper .slide-movie-wrapper {
+  overflow: hidden;
+  height: 100%;
+  width: 70%;
+}
+
+.slide-wrapper li {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.slide-wrapper li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-wrapper li img:hover {
+  filter: brightness(0.4);
+  transition-duration: 0.2s;
+}
+
 dialog {
   width: 60%;
   height: 70%;
@@ -325,6 +373,9 @@ dialog::backdrop {
     grid-auto-rows: auto;
     gap: 45px 72px;
   }
+  .slide-wrapper {
+    height: 600px;
+  }
 }
 @media screen and (max-width: 1700px) {
   * {
@@ -337,6 +388,9 @@ dialog::backdrop {
   }
   .modal {
     padding: 80px 32px;
+  }
+  .slide-wrapper {
+    height: 500px;
   }
 }
 @media screen and (max-width: 1450px) {
@@ -364,6 +418,9 @@ dialog::backdrop {
   .search {
     min-width: 180px;
   }
+  .slide-wrapper {
+    height: 400px;
+  }
 }
 @media screen and (max-width: 750px) {
   * {
@@ -382,6 +439,9 @@ dialog::backdrop {
   }
   .modal {
     padding: 60px 24px;
+  }
+  .slide-wrapper {
+    height: 300px;
   }
 }
 
