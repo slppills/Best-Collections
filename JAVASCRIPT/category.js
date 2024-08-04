@@ -1,5 +1,11 @@
 import { state } from "./state.js";
-import { inputValue, homeWrapper, footerSpan, fetchAndDisplayMovies, categorySpan } from "./index.js";
+import { inputValue, homeWrapper, footerSpan, fetchAndDisplayMovies } from "./index.js";
+const categoryList = document.getElementById("category-list");
+const categorySpan = document.getElementById("category-span");
+
+if (state.prevCategory === "") {
+  categorySpan.innerHTML = "카테고리";
+}
 
 // 카테고리 영화 리스트
 export const changeCategory = (e) => {
@@ -15,3 +21,5 @@ export const changeCategory = (e) => {
   );
   categorySpan.innerText = document.getElementById(state.category).innerText;
 };
+
+categoryList.addEventListener("click", (e) => changeCategory(e));

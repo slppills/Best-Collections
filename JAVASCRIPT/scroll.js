@@ -24,4 +24,4 @@ export const handleScroll = () => {
   }
 };
 
-document.addEventListener("scroll", handleScroll);
+document.addEventListener("scroll", () => handleScroll());

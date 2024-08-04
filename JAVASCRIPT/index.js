@@ -1,15 +1,9 @@
-import { getModalMovie } from "./modal.js";
-import { handleScroll } from "./scroll.js";
 import { state } from "./state.js";
-import { changeLanguage } from "./language.js";
-import { changeCategory } from "./category.js";
 import { searchMovie } from "./search.js";
-import { slideMovies } from "./slide.js";
+import { getModalMovie } from "./modal.js";
 export const homeWrapper = document.querySelector(".home-wrapper");
 export let inputValue = document.getElementById("title-input");
-export const categorySpan = document.getElementById("category-span");
 export const languageToggle = document.getElementById("chk1");
-export const categoryList = document.getElementById("category-list");
 export const modal = document.querySelector("dialog");
 export const footerSpan = document.querySelector("footer span");
 export const logo = document.querySelector("header .logo");
@@ -20,10 +14,6 @@ export const slideNextBtn = document.querySelector(".slide-next-btn");
 export const incrementScrollPage = () => {
   state.scrollPage++;
 };
-
-if (state.prevCategory === "") {
-  categorySpan.innerHTML = "카테고리";
-}
 
 export const options = {
   method: "GET",
@@ -62,10 +52,9 @@ const displayMovies = (movies) => {
   // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
   document.querySelectorAll(".movie-box").forEach((box) => {
     box.addEventListener("click", (e) => {
-      alert("영화 아이디 : " + e.target.id);
-      getModalMovie(e.target.id);
-      modal.showModal();
-      document.body.style.overflow = "hidden";
+      // getModalMovie(e.target.id);
+      // modal.showModal();
+      // document.body.style.overflow = "hidden";
     });
   });
 };
@@ -76,8 +65,6 @@ window.addEventListener("DOMContentLoaded", () => {
     `https://api.themoviedb.org/3/movie/popular?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}&page=1`
   );
 });
-
-window.addEventListener("DOMContentLoaded", slideMovies());
 
 // 모달창 바깥쪽 클릭하면 모달창 닫기
 modal.addEventListener("click", (e) => {
@@ -90,10 +77,11 @@ logo.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-inputValue.addEventListener("input", (e) => searchMovie(e));
-
-categoryList.addEventListener("click", (e) => changeCategory(e));
-
-languageToggle.addEventListener("click", () => changeLanguage());
-
-document.addEventListener("scroll", handleScroll());
+inputValue.addEventListener("input", (e) => {
+  const slide = document.querySelector(".slide-wrapper");
+  searchMovie(e);
+  console.log(e.target.value);
+  !e.target.value
+    ? setTimeout(() => (slide.style.display = "flex"), 300)
+    : setTimeout(() => (slide.style.display = "none"), 300);
+});
