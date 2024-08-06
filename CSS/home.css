@@ -1,6 +1,7 @@
 @font-face {
   font-family: "yg-jalnan";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -533,7 +534,8 @@ dialog::backdrop {
   cursor: pointer;
 }
 .movie-box:hover {
-  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.7), -5px 5px 15px rgba(255, 255, 255, 0.7);
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.7),
+    -5px 5px 15px rgba(255, 255, 255, 0.7);
   transition-duration: 0.3s;
 }
 
@@ -569,4 +571,59 @@ footer span {
   font-size: 2rem;
   color: white;
   visibility: hidden;
+}
+
+/* language-selector */
+.language-selector {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  flex-wrap: wrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.language-selector label {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-selector input[type="radio"] {
+  display: none;
+}
+
+.language-selector input[type="radio"]:checked + label {
+  background-color: #555;
+  border-color: #666;
+}
+
+@media (max-width: 1085px) {
+  .language-selector {
+    align-items: flex-start;
+    min-width: 90px;
+  }
+
+  .language-selector label {
+    font-size: 10px;
+    padding: 10px;
+  }
+
+  .language-selector input[type="radio"]:checked + label {
+    background-color: #555;
+    border-color: #666;
+  }
 }

@@ -13,10 +13,26 @@
     <header>
       <div class="logo">STM</div>
       <div class="search">
-        <input id="title-input" type="text" placeholder="영화 제목을 입력하세요" />
+        <input
+          id="title-input"
+          type="text"
+          placeholder="영화 제목을 입력하세요"
+        />
         <img src="Img/search.svg" alt="" />
         <div class="toggle-container"></div>
       </div>
+
+      <div class="language-selector">
+        <input type="radio" id="ko-KR" name="language" value="ko-KR" checked />
+        <label for="ko-KR">KR</label>
+
+        <input type="radio" id="ja-JP" name="language" value="ja-JP" />
+        <label for="ja-JP">JP</label>
+
+        <input type="radio" id="en-UN" name="language" value="en-UN" />
+        <label for="en-UN">EN</label>
+      </div>
+
       <div class="header-navbar">
         <span id="category-span"></span>
         <ul id="category-list">
