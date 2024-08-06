@@ -1,0 +1,169 @@
+
+.movie_img{
+    width: 300px;
+    height: 500px;
+}
+
+
+
+/*슬라이드*/
+
+.flex {
+    display: flex;
+}
+
+.flex-jc-c {
+    justify-content: center;
+}
+.con {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: solid red;
+}
+
+.article-board-box {
+    position: relative;
+    border: solid red;
+}
+.current_popular {
+    position: relative;
+    width: 960px;
+    margin: 50px auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.current_popular_wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out;
+}
+
+.current_popular_wrapper > .movie-box:not(:last-child) {
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.controls {
+    text-align: center;
+
+}
+
+.controls span {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.controls > .prev1 {
+    right: calc(100% - 40px);
+}
+
+.controls > .next1 {
+    left: calc(100% - 40px);
+}
+
+.ha {
+    width: 50px;
+}
+
+.fa-chevron-left:before{
+    content: "<";
+    color: #fff;
+}
+
+.fa-chevron-right:before{
+    content: ">";
+    color: #fff;
+}
+
+/*두 번째*/
+.summer_horror {
+    position: relative;
+    width: 960px;
+    margin: 50px auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.horror-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out;
+}
+
+.horror-wrapper > .movie-box:not(:last-child) {
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.controls > .prev2 {
+    right: calc(100% - 40px);
+}
+
+.controls > .next2 {
+    left: calc(100% - 40px);
+}
+
+/*세 번째*/
+.summer_action {
+    position: relative;
+    width: 960px;
+    margin: 50px auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.action-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out;
+}
+
+.action-wrapper > .movie-box:not(:last-child) {
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.controls > .prev3 {
+    right: calc(100% - 40px);
+}
+
+.controls > .next3 {
+    left: calc(100% - 40px);
+}
+
+/*네 번째*/
+.home-container {
+    position: relative;
+    width: 960px;
+    margin: 50px auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.home-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out;
+}
+
+.home-wrapper > .movie-box:not(:last-child) {
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.controls > .prev4 {
+    right: calc(100% - 40px);
+}
+
+.controls > .next4 {
+    left: calc(100% - 40px);
+}
+
+

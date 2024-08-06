@@ -1,9 +1,10 @@
 import { getModalMovie } from './modal.js';
-import { handleScroll } from './scroll.js';
+//import { handleScroll } from './scroll.js';
 import { state } from './state.js';
 import { changeLanguage } from './language.js';
 import { changeCategory } from './category.js';
 import { searchMovie } from './search.js';
+import { current_popular, summer_horror, summer_action, home_container } from './genre.js';
 export const homeWrapper = document.querySelector('.home-wrapper');
 export let inputValue = document.getElementById('title-input');
 export const categorySpan = document.getElementById('category-span');
@@ -28,15 +29,40 @@ const options2 = {
             'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMzcxNjA2ZDhjZjFhNzExMGM3NDA4NDgyMzRkYTI5OCIsIm5iZiI6MTcyMjQwOTA0OS4yMTkxNDksInN1YiI6IjY2OWRhNDQxZjE3YTkxMjZkMjRjMzE2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.irIRry7DTrV5CvuN3cTBzck3de9c2n5deQwiPzm3hbw',
     },
 };
-export const trendingMovies = (url) => {
-    fetch(url, options2)
-        .then((response) => response.json())
-        .then((response) => {
-            const trendingmovieLists = response['results'];
-            console.log(trendingmovieLists);
-        })
-        .catch((err) => console.error(err));
-};
+// export const trendingMovies = (url) => {
+//     fetch(url, options2)
+//         .then((response) => response.json())
+//         .then((response) => {
+//             console.log(response);
+//             const trendingmovieLists = response['results'];
+//             console.log(trendingmovieLists);
+//             current_popular(trendingmovieLists);
+//             summer_horror(trendingmovieLists);
+//             summer_action(trendingmovieLists);
+//             home_container(trendingmovieLists);
+//             footerSpan.style.visibility = 'hidden';
+//         })
+//         .catch((err) => console.error(err));
+// };
+
+let trendingmovieLists = [];
+export async function fetchData(url) {
+    const result = await fetch(url, options2);
+    const trendingmovies = await result.json();
+    const trendingmovieLists = trendingmovies.results;
+    current_popular(trendingmovieLists);
+    summer_horror(trendingmovieLists);
+    summer_action(trendingmovieLists);
+    home_container(trendingmovieLists);
+}
+
+console.log('절취선ㄴㄴㄴㄴㄴㄴㄴㄴㄴ');
+console.log(trendingmovieLists);
+console.log('절취선ㅇㅇㅇㅇㅇㅇㅇ');
+    
+
+export { trendingmovieLists };
+export default { trendingmovieLists };
 
 export const options = {
     method: 'GET',
@@ -61,20 +87,20 @@ export const fetchAndDisplayMovies = (url) => {
 
 const displayMovies = (movies) => {
     movies.forEach((movie) => {
-        const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        const movieList = `
-      <div class="movie-box" id=${movie.id}>
-        <div class="movie-box-wrapper" id=${movie.id}>
-          <div class="movie_img">
-            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
-          </div>
-          <div class="movie_sub">
-            <p id=${movie.id}>${movie.title}</p><br/>
-            <p>${movie.vote_average}</p>
-          </div>
-        </div>
-      </div>`;
-        homeWrapper.innerHTML += movieList;
+        const moviePoster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+    //     const movieList = `
+    //   <div class="movie-box" id=${movie.id}>
+    //     <div class="movie-box-wrapper" id=${movie.id}>
+    //       <div class="movie_img">
+    //         <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+    //       </div>
+    //       <div class="movie_sub">
+    //         <p id=${movie.id}>${movie.title}</p><br/>
+    //         <p>${movie.vote_average}</p>
+    //       </div>
+    //     </div>
+    //   </div>`;
+    //     homeWrapper.innerHTML += movieList;
     });
 
     // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
@@ -95,7 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
     );
 });
 window.addEventListener('DOMContentLoaded', () => {
-    trendingMovies(
+    fetchData(
         `https://api.themoviedb.org/3/trending/movie/day?language=${state.isLanguageKorean ? 'ko-KR' : 'en-UN'}&page=1`
     );
 });
@@ -117,4 +143,4 @@ categoryList.addEventListener('click', (e) => changeCategory(e));
 
 languageToggle.addEventListener('click', () => changeLanguage());
 
-document.addEventListener('scroll', handleScroll());
+//document.addEventListener('scroll', handleScroll());

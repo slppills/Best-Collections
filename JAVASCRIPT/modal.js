@@ -5,12 +5,13 @@ import { state } from "./state.js";
 export const getModalMovie = (movieId) => {
   const modalWrapper = document.querySelector(".modal");
   const modalLoading = `
-        <div class="modal-loading"><span>Loading...</span></div>
-      `;
+    <div class="modal-loading"><span>Loading...</span></div>
+  `;
   modalWrapper.innerHTML = modalLoading;
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}`, options)
     .then((response) => response.json())
     .then((response) => {
+      console.log(response);
       const modalMoviedata = response;
       const moviePoster = `https://image.tmdb.org/t/p/w500/${modalMoviedata.backdrop_path}`;
 
@@ -30,7 +31,6 @@ export const getModalMovie = (movieId) => {
               modalMoviedata.overview ? modalMoviedata.overview : "(언어를 바꿔주세요)"
             }</span>
             </div>
-            
         </div>
         `;
       modalWrapper.innerHTML = MovieInfo;
