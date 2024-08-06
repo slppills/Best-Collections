@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>리뷰</title>
-    <script defer src="/detail.js"></script>
-    <link rel="stylesheet" href="/detail.css">
-</head>
+    <script defer src="JAVASCRIPT/detail.js"></script>
+    <link rel="stylesheet" href="CSS/detail.css" />
+  </head>
 
-<body>
-    
+  <body>
     <div class="review-container">
-        <div id="reviewer-info-container">
-            <label for="reviewer-name-input" class="name-label">작성자</label>
-            <input type="text" id="reviewer-name-input" placeholder="이름을 입력해주세요." maxlength = '10'>
-            <label for="reviewer-password-input" class="password-label">비밀번호</label>
-            <input type="password" id="reviewer-password-input" placeholder="비밀번호를 입력해주세요." maxlength = '6'>
-            <label for="rating-star" class="rating-label">별점</label>
-            <select id="rating-star">
-                <option value="" selected disabled>별점선택</option>
-                <option value="⭐">⭐</option>
-                <option value="⭐⭐">⭐⭐</option>
-                <option value="⭐⭐⭐">⭐⭐⭐</option>
-                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-            </select>
-        </div>
-        <div id="review-write-container">
-            <textarea id="review-input" placeholder="영화 리뷰를 작성해주세요. (200자 제한)" maxlength="200"></textarea>
-            <button id="review-submit-btn">작성</button>
-        </div>
-        <div id="review-list">
-        </div>
+      <div id="reviewer-info-container">
+        <label for="reviewer-name-input" class="name-label">작성자</label>
+        <input type="text" id="reviewer-name-input" placeholder="이름을 입력해주세요." maxlength="10" />
+        <label for="reviewer-password-input" class="password-label">비밀번호</label>
+        <input type="password" id="reviewer-password-input" placeholder="비밀번호를 입력해주세요." maxlength="6" />
+        <label for="rating-star" class="rating-label">별점</label>
+        <select id="rating-star">
+          <option value="" selected disabled>별점선택</option>
+          <option value="⭐">⭐</option>
+          <option value="⭐⭐">⭐⭐</option>
+          <option value="⭐⭐⭐">⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+        </select>
+      </div>
+      <div id="review-write-container">
+        <textarea id="review-input" placeholder="영화 리뷰를 작성해주세요. (200자 제한)" maxlength="200"></textarea>
+        <button id="review-submit-btn">작성</button>
+      </div>
+      <div id="review-list"></div>
     </div>
-</body>
-
+  </body>
 </html>
