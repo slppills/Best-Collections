@@ -1,6 +1,7 @@
 import { state } from "./state.js";
 import { searchMovie } from "./search.js";
 import { getModalMovie } from "./modal.js";
+import { changeLanguage } from "./language.js";
 export const homeWrapper = document.querySelector(".home-wrapper");
 export let inputValue = document.getElementById("title-input");
 export const languageToggle = document.getElementById("chk1");
@@ -10,6 +11,9 @@ export const logo = document.querySelector("header .logo");
 export const slideWrapper = document.querySelector(".slide-wrapper ul");
 export const slidePrevBtn = document.querySelector(".slide-prev-btn");
 export const slideNextBtn = document.querySelector(".slide-next-btn");
+export const languageSelectButtons = document.querySelectorAll(
+  '.language-selector input[type="radio"]'
+);
 
 export const incrementScrollPage = () => {
   state.scrollPage++;
@@ -62,7 +66,7 @@ const displayMovies = (movies) => {
 // 처음 화면에 불러오는 데이터
 window.addEventListener("DOMContentLoaded", () => {
   fetchAndDisplayMovies(
-    `https://api.themoviedb.org/3/movie/popular?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}&page=1`
+    `https://api.themoviedb.org/3/movie/popular?language=${state.selectedLanguage}&page=1`
   );
 });
 
@@ -84,4 +88,11 @@ inputValue.addEventListener("input", (e) => {
   !e.target.value
     ? setTimeout(() => (slide.style.display = "flex"), 300)
     : setTimeout(() => (slide.style.display = "none"), 300);
+});
+
+languageSelectButtons.forEach((button) => {
+  button.addEventListener("change", (e) => {
+    const chosenLanguage = e.target.value;
+    changeLanguage(chosenLanguage);
+  });
 });

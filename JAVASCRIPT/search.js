@@ -13,14 +13,12 @@ export const searchMovie = (e) => {
     if (e.target.value.length > 0) {
       state.ifSearching = true;
       fetchAndDisplayMovies(
-        `https://api.themoviedb.org/3/search/movie?query=${e.target.value}&include_adult=true&language=${
-          state.isLanguageKorean ? "ko-KR" : "en-UN"
-        }&page=1`
+        `https://api.themoviedb.org/3/search/movie?query=${e.target.value}&include_adult=true&language=${state.selectedLanguage}&page=1`
       );
     } else {
       state.ifSearching = false;
       fetchAndDisplayMovies(
-        `https://api.themoviedb.org/3/movie/${state.category}?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}`
+        `https://api.themoviedb.org/3/movie/${state.category}?language=${state.selectedLanguage}`
       );
     }
   }, 300);
