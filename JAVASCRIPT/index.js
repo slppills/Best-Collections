@@ -1,18 +1,20 @@
 import { getModalMovie } from './modal.js';
-//import { handleScroll } from './scroll.js';
 import { state } from './state.js';
 import { changeLanguage } from './language.js';
 import { changeCategory } from './category.js';
 import { searchMovie } from './search.js';
 import { current_popular, summer_horror, summer_action, home_container } from './genre.js';
-export const homeWrapper = document.querySelector('.home-wrapper');
-export let inputValue = document.getElementById('title-input');
 export const categorySpan = document.getElementById('category-span');
-export const languageToggle = document.getElementById('chk1');
 export const categoryList = document.getElementById('category-list');
-export const modal = document.querySelector('dialog');
-export const footerSpan = document.querySelector('footer span');
-export const logo = document.querySelector('header .logo');
+export const homeWrapper = document.querySelector(".home-wrapper");
+export let inputValue = document.getElementById("title-input");
+export const languageToggle = document.getElementById("chk1");
+export const modal = document.querySelector("dialog");
+export const footerSpan = document.querySelector("footer span");
+export const logo = document.querySelector("header .logo");
+export const slideWrapper = document.querySelector(".slide-wrapper ul");
+export const slidePrevBtn = document.querySelector(".slide-prev-btn");
+export const slideNextBtn = document.querySelector(".slide-next-btn");
 
 export const incrementScrollPage = () => {
     state.scrollPage++;
@@ -55,11 +57,6 @@ export async function fetchData(url) {
     summer_action(trendingmovieLists);
     home_container(trendingmovieLists);
 }
-
-console.log('절취선ㄴㄴㄴㄴㄴㄴㄴㄴㄴ');
-console.log(trendingmovieLists);
-console.log('절취선ㅇㅇㅇㅇㅇㅇㅇ');
-    
 
 export { trendingmovieLists };
 export default { trendingmovieLists };
@@ -137,10 +134,5 @@ logo.addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-inputValue.addEventListener('input', (e) => searchMovie(e));
-
-categoryList.addEventListener('click', (e) => changeCategory(e));
-
-languageToggle.addEventListener('click', () => changeLanguage());
 
 //document.addEventListener('scroll', handleScroll());

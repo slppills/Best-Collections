@@ -1,5 +1,5 @@
 export const state = {
-  isLanguageKorean: true,
+  selectedLanguage: "ko-KR",
   category: "popular",
   scrollPage: 1,
   moviedata: [],
