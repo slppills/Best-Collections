@@ -41,7 +41,7 @@ const displayMovies = (movies) => {
   movies.forEach((movie) => {
     const moviePoster = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`;
     const movieList = `
-      <div class="movie-box" id=${movie.id}>
+      <div class="movie-box" data-movieIdData="${movie.id}" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           <span id=${movie.id}>${movie.title}</span>
@@ -56,6 +56,12 @@ const displayMovies = (movies) => {
       // getModalMovie(e.target.id);
       // modal.showModal();
       // document.body.style.overflow = "hidden";
+      
+      // 디테일 페이지로 이동
+      const movieCard = e.target.closest('.movie-box');
+      const movieId = movieCard.getAttribute('data-movieIdData');
+      const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+      window.open(detailPageUrl, '_blank');
     });
   });
 };
