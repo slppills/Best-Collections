@@ -8,7 +8,7 @@ export const getModalMovie = (movieId) => {
     <div class="modal-loading"><span>Loading...</span></div>
   `;
   modalWrapper.innerHTML = modalLoading;
-  fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}`, options)
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=${state.selectedLanguage`, options)
     .then((response) => response.json())
     .then((response) => {
       console.log(response);

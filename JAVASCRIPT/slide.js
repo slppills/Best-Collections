@@ -46,7 +46,9 @@ const clickSlideBtn = (e) => {
   isSliding = true; // 슬라이드 시작
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(autoSlide, 3000);
-  e.target.className === "slide-prev-btn" ? (currentSlide -= 1) : (currentSlide += 1);
+  e.target.className === "slide-prev-btn"
+    ? (currentSlide -= 1)
+    : (currentSlide += 1);
   moveSlide();
   passSlideTransition();
 };
@@ -63,7 +65,7 @@ const slideMovies = async () => {
   try {
     const response = await fetch(
       `
-      https://api.themoviedb.org/3/movie/now_playing?language=${state.isLanguageKorean ? "ko-KR" : "en-UN"}&page=1`,
+      https://api.themoviedb.org/3/movie/now_playing?language=${state.selectedLanguage}&page=1`,
       options
     );
     const movies = await response.json();
@@ -77,7 +79,9 @@ const slideMovies = async () => {
       const movieLi = `<li style="background: url(${movieBackdrop}); background-size: cover; background-position: center">
         <div class="slide-hover-container">
           <span class="slide-title">${movie.title}</span>
-          <div><span class="slide-vote_average">${movie.vote_average.toFixed(1)}</span>/10</div>
+          <div><span class="slide-vote_average">${movie.vote_average.toFixed(
+            1
+          )}</span>/10</div>
           <input type="button" value="자세히 보기"></button>
         </div>
       </li>`;
@@ -91,7 +95,9 @@ const slideMovies = async () => {
     slideWrapper.appendChild(firstMovie);
 
     slideWrapper.addEventListener("mouseover", (e) => {
-      const hoverContainer = e.target.closest("li").querySelector(".slide-hover-container");
+      const hoverContainer = e.target
+        .closest("li")
+        .querySelector(".slide-hover-container");
       if (hoverContainer) {
         hoverContainer.style.display = "flex";
         clearInterval(autoSlideInterval);
@@ -99,7 +105,9 @@ const slideMovies = async () => {
     });
 
     slideWrapper.addEventListener("mouseout", (e) => {
-      const hoverContainer = e.target.closest("li").querySelector(".slide-hover-container");
+      const hoverContainer = e.target
+        .closest("li")
+        .querySelector(".slide-hover-container");
       if (hoverContainer) {
         hoverContainer.style.display = "none";
         autoSlideInterval = setInterval(autoSlide, 3000);
@@ -111,5 +119,9 @@ const slideMovies = async () => {
 };
 
 window.addEventListener("DOMContentLoaded", slideMovies());
-document.querySelector(".slide-prev-btn").addEventListener("click", (e) => clickSlideBtn(e));
-document.querySelector(".slide-next-btn").addEventListener("click", (e) => clickSlideBtn(e));
+document
+  .querySelector(".slide-prev-btn")
+  .addEventListener("click", (e) => clickSlideBtn(e));
+document
+  .querySelector(".slide-next-btn")
+  .addEventListener("click", (e) => clickSlideBtn(e));
