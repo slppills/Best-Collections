@@ -8,7 +8,10 @@ export const getModalMovie = (movieId) => {
     <div class="modal-loading"><span>Loading...</span></div>
   `;
   modalWrapper.innerHTML = modalLoading;
-  fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=${state.selectedLanguage`, options)
+  fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=${state.selectedLanguage}`,
+    options
+  )
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
@@ -18,17 +21,23 @@ export const getModalMovie = (movieId) => {
       const MovieInfo = `
         <div class="modal-image">
             <img src=${moviePoster} alt=${modalMoviedata.title}>
-            <div class="modal-genres">${modalMoviedata.genres.map((genre) => `<span>#${genre.name}</span>`)}</div>
+            <div class="modal-genres">${modalMoviedata.genres.map(
+              (genre) => `<span>#${genre.name}</span>`
+            )}</div>
         </div>
         <div class="modal-info">
             <div class="modal-info-wrapper">
             <h1>${modalMoviedata.title}</h1>
             <div class="modal-releasedate">
                 <span>${modalMoviedata.release_date}</span>
-                <div><span class="vote_average">${modalMoviedata.vote_average.toFixed(1)}</span>/10</div>
+                <div><span class="vote_average">${modalMoviedata.vote_average.toFixed(
+                  1
+                )}</span>/10</div>
             </div>
             <span class="modal-overview">${
-              modalMoviedata.overview ? modalMoviedata.overview : "(언어를 바꿔주세요)"
+              modalMoviedata.overview
+                ? modalMoviedata.overview
+                : "(언어를 바꿔주세요)"
             }</span>
             </div>
         </div>
