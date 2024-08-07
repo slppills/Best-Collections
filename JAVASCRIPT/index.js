@@ -100,15 +100,20 @@ const displayMovies = (movies) => {
     //     homeWrapper.innerHTML += movieList;
     });
 
-    // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
-    document.querySelectorAll('.movie-box').forEach((box) => {
-        box.addEventListener('click', (e) => {
-            alert('영화 아이디 : ' + e.target.id);
-            getModalMovie(e.target.id);
-            modal.showModal();
-            document.body.style.overflow = 'hidden';
-        });
+  // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
+  document.querySelectorAll(".movie-box").forEach((box) => {
+    box.addEventListener("click", (e) => {
+      // getModalMovie(e.target.id);
+      // modal.showModal();
+      // document.body.style.overflow = "hidden";
+      
+      // 디테일 페이지로 이동
+      const movieCard = e.target.closest('.movie-box');
+      const movieId = movieCard.getAttribute('data-movieIdData');
+      const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+      window.open(detailPageUrl, '_blank');
     });
+  });
 };
 
 // 처음 화면에 불러오는 데이터

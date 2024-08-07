@@ -18,41 +18,43 @@
             <div class="modal"></div>
         </dialog>
         <header>
-            <div>
-                <img class="logo" src="./Img/logo.png" />
-                <div class="search">
-                    <input id="title-input" type="text" placeholder="영화 제목을 입력하세요" />
-                    <img src="Img/search.svg" alt="" />
-                    <div class="toggle-container"></div>
-                </div>
+            <img src="Img/logo.png" class="logo"/>
+            <div class="search">
+                <input id="title-input" type="text" placeholder="영화 제목을 입력하세요" />
+                <img src="Img/search.svg" alt="" />
+                <div class="toggle-container"></div>
+            </div>
 
-                <div class="language-selector">
-                    <input type="radio" id="ko-KR" name="language" value="ko-KR" checked />
-                    <label for="ko-KR">KR</label>
-                    <input type="radio" id="ja-JP" name="language" value="ja-JP" />
-                    <label for="ja-JP">JP</label>
-                    <input type="radio" id="en-UN" name="language" value="en-UN" />
-                    <label for="en-UN">EN</label>
-                </div>
+            <div class="language-selector">
+                <input type="radio" id="ko-KR" name="language" value="ko-KR" checked />
+                <label for="ko-KR">KR</label>
 
-                <div class="header-navbar">
-                    <span id="category-span"></span>
-                    <ul id="category-list">
-                        <li id="now_playing">현재 상영중</li>
-                        <li id="popular">인기 차트</li>
-                        <li id="top_rated">최고의 영화</li>
-                        <li id="upcoming">상영 예정중</li>
-                    </ul>
-                </div>
+                <input type="radio" id="ja-JP" name="language" value="ja-JP" />
+                <label for="ja-JP">JP</label>
+
+                <input type="radio" id="en-UN" name="language" value="en-UN" />
+                <label for="en-UN">EN</label>
+            </div>
+
+            <div class="header-navbar">
+                <span id="category-span"></span>
+                <ul id="category-list">
+                    <li id="now_playing">현재 상영중</li>
+                    <li id="popular">인기 차트</li>
+                    <li id="top_rated">최고의 영화</li>
+                    <li id="upcoming">상영 예정중</li>
+                </ul>
+            </div>
         </header>
         <section>
             <div class="slide-wrapper">
-        <img class="slide-prev-btn" src="Img/slide-prev-btn.svg" alt="" />
-        <div class="slide-movie-wrapper">
-          <ul></ul>
-        </div>
-        <img class="slide-next-btn" src="Img/slide-next-btn.svg" alt="" />
-      </div>
+                <img class="slide-prev-btn" src="Img/slide-prev-btn.svg" alt="" />
+                <div class="slide-movie-wrapper">
+                    <ul></ul>
+                </div>
+                <img class="slide-next-btn" src="Img/slide-next-btn.svg" alt="" />
+            </div>
+            <h2 class="title_sub">현재 가도를 달리고 있는 영화</h2>
             <div class="current_popular">
                 <div class="current_popular_wrapper flex"></div>
                 <p class="controls">
@@ -60,6 +62,7 @@
                     <span class="next1"><i class="fas fa-chevron-right"></i></span>
                 </p>
             </div>
+            <h2 class="title_sub">올 여름은 공포와 togather,,,⭐</h2>
             <div class="summer_horror">
                 <div class="horror-wrapper flex"></div>
                 <p class="controls">
@@ -67,6 +70,7 @@
                     <span class="next2"><i class="fas fa-chevron-right"></i></span>
                 </p>
             </div>
+            <h2 class="title_sub">너무 더워,,, 더울 땐 액션이지</h2>
             <div class="summer_action">
                 <div class="action-wrapper flex"></div>
                 <p class="controls">
@@ -75,6 +79,7 @@
                 </p>
             </div>
             <!-- 애니메이션 -->
+            <h2 class="title_sub">울 아이가 이 영화를 참 조아해요,,,*^^* 부모님이 더 좋아하신다</h2>
             <div class="home-container">
                 <div class="home-wrapper flex"></div>
                 <p class="controls">
@@ -84,6 +89,5 @@
             </div>
             <footer><span>loading...</span></footer>
         </section>
-
     </body>
 </html>

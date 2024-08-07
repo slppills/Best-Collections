@@ -49,8 +49,11 @@ export async function fetchData(url) {
 
     /* 두 번째 슬라이드 */
     let slides2 = document.querySelector('.horror-wrapper'),
-        currentIdx2 = 0,
-        slideCount2 = trendingmovieLists.length,
+        currentIdx2 = 0;
+    const summer_horrorList = trendingmovieLists.filter((object) => {
+        return object.genre_ids.includes(27);
+    });
+    let slideCount2 = summer_horrorList.length,
         slideWidth2 = 300,
         slideMargin2 = 30,
         prevBtn2 = document.querySelector('.prev2'),
@@ -81,8 +84,11 @@ export async function fetchData(url) {
 
     /* 세 번째 슬라이드 */
     let slides3 = document.querySelector('.action-wrapper'),
-        currentIdx3 = 0,
-        slideCount3 = trendingmovieLists.length,
+        currentIdx3 = 0;
+    const summer_actionList = trendingmovieLists.filter((object) => {
+        return object.genre_ids.includes(28);
+    });
+    let slideCount3 = summer_actionList.length,
         slideWidth3 = 300,
         slideMargin3 = 30,
         prevBtn3 = document.querySelector('.prev3'),
@@ -113,8 +119,11 @@ export async function fetchData(url) {
 
     /* 네 번째 슬라이드 */
     let slides4 = document.querySelector('.home-wrapper'),
-        currentIdx4 = 0,
-        slideCount4 = trendingmovieLists.length,
+        currentIdx4 = 0;
+    const home_containerList = trendingmovieLists.filter((object) => {
+        return object.genre_ids.includes(16);
+    });
+    let slideCount4 = home_containerList.length,
         slideWidth4 = 300,
         slideMargin4 = 30,
         prevBtn4 = document.querySelector('.prev4'),

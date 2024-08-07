@@ -77,12 +77,12 @@ const slideMovies = async () => {
       const movieBackdrop = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
       // const movieLi = <li><img src=${movieBackdrop}></li>;
       const movieLi = `<li style="background: url(${movieBackdrop}); background-size: cover; background-position: center">
-        <div class="slide-hover-container">
+        <div class="slide-hover-container" data-movieIdData="${movie.id}">
           <span class="slide-title">${movie.title}</span>
           <div><span class="slide-vote_average">${movie.vote_average.toFixed(
             1
           )}</span>/10</div>
-          <input type="button" value="자세히 보기"></button>
+          <input type="button" id="go-to-detail-btn" value="자세히 보기"></button>
         </div>
       </li>`;
       slideWrapper.innerHTML += movieLi;
@@ -93,6 +93,17 @@ const slideMovies = async () => {
     const lastMovie = movieList[movieList.length - 1].cloneNode(true);
     slideWrapper.insertBefore(lastMovie, movieList[0]);
     slideWrapper.appendChild(firstMovie);
+
+    // 디테일 페이지로 이동
+    document.querySelectorAll("#go-to-detail-btn").forEach((button) => {
+      button.addEventListener("click", (e) => {        
+        const movieCard = e.target.closest('.slide-hover-container');
+        const movieId = movieCard.getAttribute('data-movieIdData');
+        const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+        window.open(detailPageUrl, '_blank');
+      });
+    });
+    //
 
     slideWrapper.addEventListener("mouseover", (e) => {
       const hoverContainer = e.target
