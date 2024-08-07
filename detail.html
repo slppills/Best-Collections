@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/detail.css">
+    <link rel="stylesheet" href="CSS/home.css">
+    
+    <script src="./JAVASCRIPT/detail.js" type="module"></script>
+    
+    
+    <title>Detail</title>
+</head>
+<body>
+
+  <!-- 배경전체 포스터 -->
+  <div class="back" id="back"></div>  
+  <header>
+    <div class="logo">STM</div>
+    <div class="search">
+      <input id="title-input" type="text" placeholder="영화 제목을 입력하세요" />
+      <img src="Img/search.svg" alt="" />
+      <div class="toggle-container"></div>
+    </div>
+
+    <div class="language-selector">
+      <input type="radio" id="ko-KR" name="language" value="ko-KR" checked />
+      <label for="ko-KR">KR</label>
+
+      <input type="radio" id="ja-JP" name="language" value="ja-JP" />
+      <label for="ja-JP">JP</label>
+
+      <input type="radio" id="en-UN" name="language" value="en-UN" />
+      <label for="en-UN">EN</label>
+    </div>
+
+    <div class="header-navbar">
+      <span id="category-span"></span>
+      <ul id="category-list">
+        <li id="now_playing">현재 상영중</li>
+        <li id="popular">인기 차트</li>
+        <li id="top_rated">최고의 영화</li>
+        <li id="upcoming">상영 예정중</li>
+      </ul>
+    </div>
+  </header>
+  
+
+  <div class="main-container" id="main-containers"></div>
+
+    <!-- 인포용 배경 포스터 -->
+    
+  
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- 출연진 정보 전체 -->
+<div class="actor-container" id="actor-container">
+  <section class="sub-section">
+    <div class="section-header"> 
+      <h1>출연 배우</h1>
+    </div>
+    <div class="section-body">
+      
+      <div class="actor-main-container">
+      </div>
+      </div>
+</div>
+  
+
+
+   
+
+<footer id="footer-section"></footer>
+
+ 
+ </body>
+</html>
+
+    

@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "yg-jalnan";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+*{
+    margin: 0;
+  padding: 0;
+  font-family: "yg-jalnan";
+  box-sizing: border-box;
+  font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: nomal1;
+    color:white;
+    letter-spacing: -1px;
+}
+
+
+
+h1 {
+    color: rgb(202, 255, 133);
+    font-size: 30px;
+}
+h2 {
+    font-size: 25px;
+}
+
+h3 {
+    font-size: 25px;
+    
+}
+
+p {
+    font-size: 15px;
+}
+
+
+
+body {
+    background-color: #2e2e2e;
+}
+
+
+
+
+.main-container {
+    padding: 230px 0 0 0;
+    width: 100%;
+   
+
+    position: relative;
+    
+}
+
+.back-poster-container {
+    width: 100%;
+    max-height: 1080px;
+    display: flex;
+    justify-content: center;
+}
+
+.back-poster-img {
+    width: 100%;
+    
+    filter: brightness(0.4);
+    mask-image: linear-gradient(to top, transparent, black 10%);
+}
+
+
+
+
+.movie-info-container {
+
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+
+    
+}
+
+.inner {
+    width: 100%;
+    max-width: 1600px;
+    
+}
+
+.info-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+}
+
+.movie-poster-container {
+    width: 50%;
+
+}
+
+.movie-poster-img {
+    object-fit: cover;
+    width: 40%;
+
+    margin-left: 40%;
+}
+
+.movie-info {
+    width: 50%;
+    margin: 100px auto 100px auto;
+    
+}
+
+.movie-summary {
+    
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.movie-summary>div {
+    width: 80%;
+    margin-left: 25%;
+}
+
+.detail-title {
+    color: rgb(202, 255, 133);
+    font-weight: 1000;
+    font-size: 45px;
+}
+
+
+
+.actor-main-container {
+    display: flex;
+
+    overflow: hidden;
+    white-space: nowrap;
+    /* 내부 요소를 한 줄에 나타내기 */
+}
+
+.actor-container {
+    flex: 0 0 10%;
+    /* width: 100%; */
+    box-sizing: border-box;
+    padding: 10px;
+    /* 슬라이드 사이 간격 설정 */
+
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.actor-poster {
+    
+    width: 200px;
+    height: 300px;
+    
+
+    object-fit: contain;
+
+}
+
+
+
+.progress {
+    height: 5px;
+    background-color: #333;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.progress .bar {
+    width: 0%;
+    height: 5px;
+    transition: width 1.2s ease;
+    background-color: #efb33b;
+
+    transition: background-color 0.7s ease-in-out, width 0.9s ease;
+}

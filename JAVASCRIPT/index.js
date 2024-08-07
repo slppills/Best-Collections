@@ -1,7 +1,7 @@
 import { state } from "./state.js";
 import { searchMovie } from "./search.js";
-import { getModalMovie } from "./modal.js";
 import { changeLanguage } from "./language.js";
+import { getDetailMovie } from "./detail.js";
 export const homeWrapper = document.querySelector(".home-wrapper");
 export let inputValue = document.getElementById("title-input");
 export const languageToggle = document.getElementById("chk1");
@@ -41,7 +41,7 @@ const displayMovies = (movies) => {
   movies.forEach((movie) => {
     const moviePoster = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`;
     const movieList = `
-      <div class="movie-box" id=${movie.id}>
+      <div class="movie-box" data-movieIdData="${movie.id}" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           <span id=${movie.id}>${movie.title}</span>
@@ -51,14 +51,18 @@ const displayMovies = (movies) => {
   });
 
   // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
-  document.querySelectorAll(".movie-box").forEach((box) => {
-    box.addEventListener("click", (e) => {
-      // getModalMovie(e.target.id);
-      // modal.showModal();
-      // document.body.style.overflow = "hidden";
+    document.querySelectorAll(".movie-box").forEach((box) => {
+      box.addEventListener("click", (e) => {
+        console.log(e.target.id);
+        getDetailMovie(e.target.id);
+        const movieCard = e.target.closest('.movie-box');
+        const movieId = movieCard.getAttribute('data-movieIdData');
+        const detailPageUrl = `detail.html?id=${movieId}`; 
+        window.open(detailPageUrl, '_self');
+      });
     });
-  });
-};
+  };
+
 
 // 처음 화면에 불러오는 데이터
 window.addEventListener("DOMContentLoaded", () => {
