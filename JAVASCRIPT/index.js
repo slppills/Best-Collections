@@ -1,7 +1,7 @@
 import { state } from "./state.js";
 import { searchMovie } from "./search.js";
-import { getModalMovie } from "./modal.js";
 import { changeLanguage } from "./language.js";
+//import { getDetailMovie } from "./detail.js";
 export const homeWrapper = document.querySelector(".home-wrapper");
 export let inputValue = document.getElementById("title-input");
 export const languageToggle = document.getElementById("chk1");
@@ -13,8 +13,7 @@ export const slidePrevBtn = document.querySelector(".slide-prev-btn");
 export const slideNextBtn = document.querySelector(".slide-next-btn");
 
 export const incrementScrollPage = () => {
-  state.scrollPage++;
-};
+  state.scrollPage++;};
 
 export const options = {
   method: "GET",
@@ -51,20 +50,18 @@ const displayMovies = (movies) => {
   });
 
   // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
-  document.querySelectorAll(".movie-box").forEach((box) => {
-    box.addEventListener("click", (e) => {
-      // getModalMovie(e.target.id);
-      // modal.showModal();
-      // document.body.style.overflow = "hidden";
-      
-      // 디테일 페이지로 이동
-      const movieCard = e.target.closest('.movie-box');
-      const movieId = movieCard.getAttribute('data-movieIdData');
-      const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
-      window.open(detailPageUrl, '_blank');
+
+    document.querySelectorAll(".movie-box").forEach((box) => {
+      box.addEventListener("click", (e) => {
+        console.log(e.target.id);
+        //getDetailMovie(e.target.id);
+        const movieCard = e.target.closest('.movie-box');
+        const movieId = movieCard.getAttribute('data-movieIdData');
+        const detailPageUrl = `detail.html?id=${movieId}`; 
+        window.open(detailPageUrl, '_self');
+      });
     });
-  });
-};
+  };
 
 // 처음 화면에 불러오는 데이터
 window.addEventListener("DOMContentLoaded", () => {
