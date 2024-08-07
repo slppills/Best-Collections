@@ -1,4 +1,5 @@
 import { homeWrapper, footerSpan, fetchAndDisplayMovies, trendingmovieLists } from './index.js';
+import { changeLanguage } from './language.js';
 export const actionwrapper = document.querySelector('.action-wrapper');
 export const horrorwrapper = document.querySelector('.horror-wrapper');
 export const currentPopularWrapper = document.querySelector('.current_popular_wrapper');

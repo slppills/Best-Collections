@@ -17,7 +17,7 @@ export const changeLanguage = (selectedLanguage) => {
     footerSpan.style.visibility = 'visible';
     state.ifSearching === false
         ? fetchData(
-              `https://api.themoviedb.org/3/movie/${state.category}?language=${state.selectedLanguage}&page=${state.scrollPage}`
+              `https://api.themoviedb.org/3/trending/movie/day?language=${state.selectedLanguage}&page=${state.scrollPage}`
           )
         : fetchData(
               `https://api.themoviedb.org/3/search/movie?query=${state.prevSearchTitle}&include_adult=true&language=${state.selectedLanguage}&page=${state.scrollPage}`

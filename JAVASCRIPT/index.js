@@ -84,7 +84,7 @@ export const fetchAndDisplayMovies = (url) => {
 
 const displayMovies = (movies) => {
     movies.forEach((movie) => {
-        const moviePoster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+    //    const moviePoster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
     //     const movieList = `
     //   <div class="movie-box" id=${movie.id}>
     //     <div class="movie-box-wrapper" id=${movie.id}>
