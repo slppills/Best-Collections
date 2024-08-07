@@ -1,8 +1,8 @@
 import { getModalMovie } from './modal.js';
 import { state } from './state.js';
+import { searchMovie } from './search.js';
 import { changeLanguage } from './language.js';
 import { changeCategory } from './category.js';
-import { searchMovie } from './search.js';
 import { current_popular, summer_horror, summer_action, home_container } from './genre.js';
 export const categorySpan = document.getElementById('category-span');
 export const categoryList = document.getElementById('category-list');
@@ -15,10 +15,11 @@ export const logo = document.querySelector('header .logo');
 export const slideWrapper = document.querySelector('.slide-wrapper ul');
 export const slidePrevBtn = document.querySelector('.slide-prev-btn');
 export const slideNextBtn = document.querySelector('.slide-next-btn');
+//import { getDetailMovie } from "./detail.js";
+
 
 export const incrementScrollPage = () => {
-    state.scrollPage++;
-};
+  state.scrollPage++;};
 
 if (state.prevCategory === '') {
     categorySpan.innerHTML = '카테고리';
