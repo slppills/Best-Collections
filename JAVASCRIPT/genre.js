@@ -42,7 +42,7 @@ export const summer_horror = (movies) => {
         const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
         const movieList = `
       <div class="movie-box" id=${movie.id}>
-        <div class="movie-box-wrapper" id=${movie.id}>
+        <div class="movie-box-wrapper" id=${movie.id} data-movieIdData3="${movie.id}">
           <div class="movie_img">
             <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
@@ -53,6 +53,15 @@ export const summer_horror = (movies) => {
         </div>
       </div>`;
         horrorwrapper.innerHTML += movieList;
+
+        document.querySelectorAll('.movie-box').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const movieCard = e.target.closest('.movie-box-wrapper');
+                const movieId = movieCard.getAttribute('data-movieIdData3');
+                const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+                window.open(detailPageUrl, '_blank');
+            });
+        });
     });
 };
 
@@ -65,7 +74,7 @@ export const summer_action = (movies) => {
         const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
         const movieList = `
       <div class="movie-box" id=${movie.id}>
-        <div class="movie-box-wrapper" id=${movie.id}>
+        <div class="movie-box-wrapper" id=${movie.id} data-movieIdData4="${movie.id}">
           <div class="movie_img">
             <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
@@ -76,6 +85,15 @@ export const summer_action = (movies) => {
         </div>
       </div>`;
         actionwrapper.innerHTML += movieList;
+
+        document.querySelectorAll('.movie-box').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const movieCard = e.target.closest('.movie-box-wrapper');
+                const movieId = movieCard.getAttribute('data-movieIdData4');
+                const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+                window.open(detailPageUrl, '_blank');
+            });
+        });
     });
 };
 
@@ -88,7 +106,7 @@ export const home_container = (movies) => {
         const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
         const movieList = `
       <div class="movie-box" id=${movie.id}>
-        <div class="movie-box-wrapper" id=${movie.id}>
+        <div class="movie-box-wrapper" id=${movie.id} data-movieIdData5="${movie.id}">
           <div class="movie_img">
             <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
@@ -99,5 +117,14 @@ export const home_container = (movies) => {
         </div>
       </div>`;
         homeContainerWrapper.innerHTML += movieList;
+
+        document.querySelectorAll('.movie-box').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const movieCard = e.target.closest('.movie-box-wrapper');
+                const movieId = movieCard.getAttribute('data-movieIdData5');
+                const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+                window.open(detailPageUrl, '_blank');
+            });
+        });
     });
 };
