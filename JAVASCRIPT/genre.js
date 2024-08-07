@@ -16,7 +16,7 @@ export const current_popular = (movies) => {
           </div>
           <div class="movie_sub">
             <p id=${movie.id}>${movie.title}</p>
-            <p>${movie.vote_average}</p>
+            <p>⭐${movie.vote_average.toFixed(1)}</p>
           </div>
         </div>
       </div>`;
@@ -39,7 +39,7 @@ export const summer_horror = (movies) => {
           </div>
           <div class="movie_sub">
             <p id=${movie.id}>${movie.title}</p>
-            <p>${movie.vote_average}</p>
+            <p>⭐${movie.vote_average.toFixed(1)}</p>
           </div>
         </div>
       </div>`;
@@ -62,7 +62,7 @@ export const summer_action = (movies) => {
           </div>
           <div class="movie_sub">
             <p id=${movie.id}>${movie.title}</p>
-            <p>${movie.vote_average}</p>
+            <p>⭐${movie.vote_average.toFixed(1)}</p>
           </div>
         </div>
       </div>`;
@@ -85,7 +85,7 @@ export const home_container = (movies) => {
           </div>
           <div class="movie_sub">
             <p id=${movie.id}>${movie.title}</p>
-            <p>${movie.vote_average}</p>
+            <p>⭐${movie.vote_average.toFixed(1)}</p>
           </div>
         </div>
       </div>`;

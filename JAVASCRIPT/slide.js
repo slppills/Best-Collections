@@ -74,7 +74,7 @@ const slideMovies = async () => {
     slideWrapper.innerHTML = "";
 
     movieData.forEach((movie) => {
-      const movieBackdrop = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
+      const movieBackdrop = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
       // const movieLi = <li><img src=${movieBackdrop}></li>;
       const movieLi = `<li style="background: url(${movieBackdrop}); background-size: cover; background-position: center">
         <div class="slide-hover-container" data-movieIdData="${movie.id}">
