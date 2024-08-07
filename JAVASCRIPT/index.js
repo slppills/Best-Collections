@@ -6,15 +6,15 @@ import { searchMovie } from './search.js';
 import { current_popular, summer_horror, summer_action, home_container } from './genre.js';
 export const categorySpan = document.getElementById('category-span');
 export const categoryList = document.getElementById('category-list');
-export const homeWrapper = document.querySelector(".home-wrapper");
-export let inputValue = document.getElementById("title-input");
-export const languageToggle = document.getElementById("chk1");
-export const modal = document.querySelector("dialog");
-export const footerSpan = document.querySelector("footer span");
-export const logo = document.querySelector("header .logo");
-export const slideWrapper = document.querySelector(".slide-wrapper ul");
-export const slidePrevBtn = document.querySelector(".slide-prev-btn");
-export const slideNextBtn = document.querySelector(".slide-next-btn");
+export const homeWrapper = document.querySelector('.home-wrapper');
+export let inputValue = document.getElementById('title-input');
+export const languageToggle = document.getElementById('chk1');
+export const modal = document.querySelector('dialog');
+export const footerSpan = document.querySelector('footer span');
+export const logo = document.querySelector('header .logo');
+export const slideWrapper = document.querySelector('.slide-wrapper ul');
+export const slidePrevBtn = document.querySelector('.slide-prev-btn');
+export const slideNextBtn = document.querySelector('.slide-next-btn');
 
 export const incrementScrollPage = () => {
     state.scrollPage++;
@@ -84,36 +84,36 @@ export const fetchAndDisplayMovies = (url) => {
 
 const displayMovies = (movies) => {
     movies.forEach((movie) => {
-    //    const moviePoster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
-    //     const movieList = `
-    //   <div class="movie-box" id=${movie.id}>
-    //     <div class="movie-box-wrapper" id=${movie.id}>
-    //       <div class="movie_img">
-    //         <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
-    //       </div>
-    //       <div class="movie_sub">
-    //         <p id=${movie.id}>${movie.title}</p><br/>
-    //         <p>${movie.vote_average}</p>
-    //       </div>
-    //     </div>
-    //   </div>`;
-    //     homeWrapper.innerHTML += movieList;
+        //    const moviePoster = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+        //     const movieList = `
+        //   <div class="movie-box" id=${movie.id}>
+        //     <div class="movie-box-wrapper" id=${movie.id}>
+        //       <div class="movie_img">
+        //         <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+        //       </div>
+        //       <div class="movie_sub">
+        //         <p id=${movie.id}>${movie.title}</p><br/>
+        //         <p>${movie.vote_average}</p>
+        //       </div>
+        //     </div>
+        //   </div>`;
+        //     homeWrapper.innerHTML += movieList;
     });
 
-  // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
-  document.querySelectorAll(".movie-box").forEach((box) => {
-    box.addEventListener("click", (e) => {
-      // getModalMovie(e.target.id);
-      // modal.showModal();
-      // document.body.style.overflow = "hidden";
-      
-      // 디테일 페이지로 이동
-      const movieCard = e.target.closest('.movie-box');
-      const movieId = movieCard.getAttribute('data-movieIdData');
-      const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
-      window.open(detailPageUrl, '_blank');
+    // 영화 포스터 클릭하면 모달창 띄우는 이벤트를 movie-box에 forEach로 붙임
+    document.querySelectorAll('.movie-box').forEach((box) => {
+        box.addEventListener('click', (e) => {
+            // getModalMovie(e.target.id);
+            // modal.showModal();
+            // document.body.style.overflow = "hidden";
+
+            // 디테일 페이지로 이동
+            const movieCard = e.target.closest('.movie-box');
+            const movieId = movieCard.getAttribute('data-movieIdData');
+            const detailPageUrl = `detail.html?id=${movieId}`; // 영화 아이디값을 다음 페이지로 넘기기
+            window.open(detailPageUrl, '_blank');
+        });
     });
-  });
 };
 
 // 처음 화면에 불러오는 데이터
@@ -138,6 +138,5 @@ modal.addEventListener('click', (e) => {
 logo.addEventListener('click', () => {
     window.location.href = 'index.html';
 });
-
 
 //document.addEventListener('scroll', handleScroll());

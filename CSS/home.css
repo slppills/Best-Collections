@@ -395,7 +395,7 @@ dialog::backdrop {
   color: #3f729b;
 }
 
-.home-container {
+/* .home-container {
   height: 100%;
   width: 100%;
 }
@@ -409,7 +409,7 @@ dialog::backdrop {
   grid-auto-rows: auto;
   gap: 50px 90px;
   place-items: center;
-}
+} */
 @media screen and (max-width: 2200px) {
   * {
     font-size: 14px;

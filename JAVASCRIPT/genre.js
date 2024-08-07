@@ -1,8 +1,9 @@
 import { homeWrapper, footerSpan, fetchAndDisplayMovies, trendingmovieLists } from './index.js';
 import { changeLanguage } from './language.js';
-export const actionwrapper = document.querySelector('.action-wrapper');
-export const horrorwrapper = document.querySelector('.horror-wrapper');
-export const currentPopularWrapper = document.querySelector('.current_popular_wrapper');
+export const actionwrapper = document.querySelector('.summer_action');
+export const horrorwrapper = document.querySelector('.summer_horror');
+export const currentPopularWrapper = document.querySelector('.current_popular');
+export const homeContainerWrapper = document.querySelector('.home-container');
 
 export const current_popular = (movies) => {
     movies.forEach((movie) => {
@@ -11,10 +12,10 @@ export const current_popular = (movies) => {
       <div class="movie-box" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <div class="movie_img">
-            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
           <div class="movie_sub">
-            <p id=${movie.id}>${movie.title}</p><br/>
+            <p id=${movie.id}>${movie.title}</p>
             <p>${movie.vote_average}</p>
           </div>
         </div>
@@ -34,10 +35,10 @@ export const summer_horror = (movies) => {
       <div class="movie-box" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <div class="movie_img">
-            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
           <div class="movie_sub">
-            <p id=${movie.id}>${movie.title}</p><br/>
+            <p id=${movie.id}>${movie.title}</p>
             <p>${movie.vote_average}</p>
           </div>
         </div>
@@ -51,22 +52,22 @@ export const summer_action = (movies) => {
         return object.genre_ids.includes(28);
     });
     console.log(summer_actionList);
-     summer_actionList.forEach((movie) => {
-         const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-         const movieList = `
+    summer_actionList.forEach((movie) => {
+        const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const movieList = `
       <div class="movie-box" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <div class="movie_img">
-            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
           <div class="movie_sub">
-            <p id=${movie.id}>${movie.title}</p><br/>
+            <p id=${movie.id}>${movie.title}</p>
             <p>${movie.vote_average}</p>
           </div>
         </div>
       </div>`;
-         actionwrapper.innerHTML += movieList;
-     });
+        actionwrapper.innerHTML += movieList;
+    });
 };
 
 export const home_container = (movies) => {
@@ -74,20 +75,20 @@ export const home_container = (movies) => {
         return object.genre_ids.includes(16);
     });
     console.log(home_containerList);
-     home_containerList.forEach((movie) => {
-         const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-         const movieList = `
+    home_containerList.forEach((movie) => {
+        const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const movieList = `
       <div class="movie-box" id=${movie.id}>
         <div class="movie-box-wrapper" id=${movie.id}>
           <div class="movie_img">
-            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}/>
+            <img src="${moviePoster}" alt="${movie.title}" id=${movie.id}>
           </div>
           <div class="movie_sub">
-            <p id=${movie.id}>${movie.title}</p><br/>
+            <p id=${movie.id}>${movie.title}</p>
             <p>${movie.vote_average}</p>
           </div>
         </div>
       </div>`;
-         homeWrapper.innerHTML += movieList;
-     });
+        homeContainerWrapper.innerHTML += movieList;
+    });
 };

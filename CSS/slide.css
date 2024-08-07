@@ -4,12 +4,17 @@
     border-radius: 20px;
 }
 
-.movie_img img:hover ~ .movie_sub {
+.movie_img:hover + .movie_sub {
     display: block;
 }
 
 .movie_sub {
+    background-color: rgba(0, 0, 0, 0.272);
+    width: 270px;
+    height: 400px;
+    color: #fff;
     display: none;
+    position: absolute;
 }
 
 .title_sub {
@@ -19,7 +24,7 @@
     color: #fff;
 }
 
-.slide-wrapper{
+.slide-wrapper {
     margin-bottom: 150px;
 }
 
@@ -33,9 +38,10 @@
     justify-content: center;
 }
 
-.current_popular {
+.current_popular_wrapper {
     border-top: 3px solid #fff;
     position: relative;
+    box-sizing:content-box;
     width: 70%;
     margin: 10px auto;
     margin-bottom: 100px;
@@ -43,14 +49,14 @@
     overflow: hidden;
 }
 
-.current_popular_wrapper {
+.current_popular {
     position: absolute;
     left: 0;
     top: 0;
     transition: left 0.5s ease-out;
 }
 
-.current_popular_wrapper > .movie-box:not(:last-child) {
+.current_popular > .movie-box:not(:last-child) {
     justify-content: flex-start;
     margin-right: 30px;
 }
@@ -89,7 +95,7 @@
 }
 
 /*두 번째*/
-.summer_horror {
+.horror-wrapper {
     border-top: 3px solid #fff;
     position: relative;
     width: 70%;
@@ -99,14 +105,14 @@
     overflow: hidden;
 }
 
-.horror-wrapper {
+.summer_horror {
     position: absolute;
     left: 0;
     top: 0;
     transition: left 0.5s ease-out;
 }
 
-.horror-wrapper > .movie-box:not(:last-child) {
+.summer_horror > .movie-box:not(:last-child) {
     justify-content: flex-start;
     margin-right: 30px;
 }
@@ -120,7 +126,7 @@
 }
 
 /*세 번째*/
-.summer_action {
+.action-wrapper {
     border-top: 3px solid #fff;
     position: relative;
     width: 70%;
@@ -130,14 +136,14 @@
     overflow: hidden;
 }
 
-.action-wrapper {
+.summer_action {
     position: absolute;
     left: 0;
     top: 0;
     transition: left 0.5s ease-out;
 }
 
-.action-wrapper > .movie-box:not(:last-child) {
+.summer_action > .movie-box:not(:last-child) {
     justify-content: flex-start;
     margin-right: 30px;
 }
@@ -151,7 +157,7 @@
 }
 
 /*네 번째*/
-.home-container {
+.home-wrapper {
     border-top: 3px solid #fff;
     position: relative;
     width: 70%;
@@ -161,14 +167,14 @@
     overflow: hidden;
 }
 
-.home-wrapper {
+.home-container {
     position: absolute;
     left: 0;
     top: 0;
     transition: left 0.5s ease-out;
 }
 
-.home-wrapper > .movie-box:not(:last-child) {
+.home-container > .movie-box:not(:last-child) {
     justify-content: flex-start;
     margin-right: 30px;
 }
