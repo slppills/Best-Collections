@@ -3,6 +3,10 @@
     src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
     font-weight: normal;
     font-style: normal;
+    /* font-family: 'DungGeunMo';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal; */
   }
 
 *{
@@ -11,7 +15,7 @@
   font-family: "yg-jalnan";
   box-sizing: border-box;
   font-optical-sizing: auto;
-    font-weight: <weight>;
+    /* font-weight: <weight>; */
     font-style: nomal1;
     color:white;
     letter-spacing: -1px;
@@ -188,3 +192,459 @@ body {
 
     transition: background-color 0.7s ease-in-out, width 0.9s ease;
 }
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+}
+
+#review-write-container,
+#reviewer-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  align-items: stretch;
+}
+
+#reviewer-info-container {
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 리뷰 작성 입력 */
+
+.name-label,
+.password-label,
+.rating-label {
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#reviewer-name-input,
+#reviewer-password-input,
+#rating-star {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-left: 5px;
+}
+
+/* 리뷰 쓰기 창 */
+
+#review-input {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+#review-input:focus {
+  border-color: #7434ff;
+  outline: none;
+}
+
+#reviewer-name-input::placeholder,
+#reviewer-password-input::placeholder,
+#review-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* 리뷰 삭제 버튼 */
+
+.review-delete-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.review-delete-button:hover {
+  background-color: #9c9c9c;
+}
+
+.review-delete-button::before {
+  content: '✕';
+  font-size: 10px;
+}
+
+/* 리뷰 제출 버튼 */
+
+#review-submit-btn {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: stretch;
+}
+
+#review-submit-btn:hover {
+  background-color: #7434ff;
+  color: white;
+}
+
+/* 리뷰 리스트 */
+
+#review-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  max-width: 100%;
+  height: 400px;
+  width: 100%;
+  margin: 5px 5px 10px 5px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  background-color: #e7e7e7;
+  color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-card:hover .review-card-header {
+  border-bottom-color: #9c9c9c;
+}
+
+/* 카드 헤더 부분 - 닉네임 & 날짜 */
+.review-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.review-card-header span {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+#reviewer-name {
+  flex: 1;
+  /* 가능한 모든 공간을 차지 */
+  white-space: pre-wrap;
+  /*nowrap로 바꾸면 줄바꿈 x*/
+  overflow: hidden;
+  /* 넘치는 부분을 숨기기 */
+  text-overflow: ellipsis;
+  /* 넘치는 부분을 '...'로 표시 */
+}
+
+#review-date {
+  white-space: nowrap;
+}
+
+/* 카드 내용 부분 - 리뷰 내용 */
+.review-card-content {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4F4F4F;
+  justify-content: space-between;
+}
+
+/* 카드 푸터 부분 - 별점 */
+.review-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  /*오른쪽에 찰싹*/
+  margin-top: auto;
+  /*바닥에 찰싹*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* font-family: 'DungGeunMo';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'DungGeunMo', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f4;
+  margin: 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+}
+
+#review-write-container,
+#reviewer-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  align-items: stretch;
+}
+
+#reviewer-info-container {
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 리뷰 작성 입력 */
+
+/* .name-label,
+.password-label,
+.rating-label {
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#reviewer-name-input,
+#reviewer-password-input,
+#rating-star {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-left: 5px;
+}
+
+/* 리뷰 쓰기 창 */
+
+/* #review-input {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+#review-input:focus {
+  border-color: #7434ff;
+  outline: none;
+}
+
+#reviewer-name-input::placeholder,
+#reviewer-password-input::placeholder,
+#review-input::placeholder {
+  color: #999;
+  font-style: italic;
+} */
+
+/* 리뷰 삭제 버튼 */
+
+/* .review-delete-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.review-delete-button:hover {
+  background-color: #9c9c9c;
+}
+
+.review-delete-button::before {
+  content: '✕';
+  font-size: 10px;
+} */
+
+/* 리뷰 제출 버튼 */
+
+/* #review-submit-btn {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: stretch;
+}
+
+#review-submit-btn:hover {
+  background-color: #7434ff;
+  color: white;
+} */
+
+/* 리뷰 리스트 */
+
+/* #review-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  max-width: 100%;
+  height: 400px;
+  width: 100%;
+  margin: 5px 5px 10px 5px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  background-color: #e7e7e7;
+  color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.review-card:hover .review-card-header {
+  border-bottom-color: #9c9c9c;
+} */
+
+/* 카드 헤더 부분 - 닉네임 & 날짜 */
+/* .review-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+} */
+
+/* .review-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.review-card-header span {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+#reviewer-name {
+  flex: 1; */
+  /* 가능한 모든 공간을 차지 */
+  /* white-space: pre-wrap; */
+  /*nowrap로 바꾸면 줄바꿈 x*/
+  /* overflow: hidden; */
+  /* 넘치는 부분을 숨기기 */
+  /* text-overflow: ellipsis; */
+  /* 넘치는 부분을 '...'로 표시 */
+/* }
+
+#review-date {
+  white-space: nowrap;
+} */
+
+/* 카드 내용 부분 - 리뷰 내용 */
+/* .review-card-content {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4F4F4F;
+  justify-content: space-between;
+} */
+
+/* 카드 푸터 부분 - 별점 */
+/* .review-card-footer {
+  display: flex;
+  justify-content: flex-end; */
+  /*오른쪽에 찰싹*/
+  /* margin-top: auto; */
+  /*바닥에 찰싹*/
+/* }  */
